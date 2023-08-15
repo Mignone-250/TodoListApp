@@ -1,24 +1,12 @@
-# README
+# Todo List App 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the ToDo App repository! This is a simple web application that allows users to manage their tasks and stay organized. The app provides features such as creating tasks, editing task details, marking tasks as completed, and more.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+To run the ToDo App on your local machine, follow these steps:
 
-* System dependencies
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/YourUsername/ToDoApp.git
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
