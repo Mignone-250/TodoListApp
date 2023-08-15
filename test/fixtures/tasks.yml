@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  title: MyString
+  description: MyText
+  duedate: 2023-08-08 12:58:55
+  priority: MyString
+  status: MyString
+  category: MyString
+  assigned_to: MyString
+  created_at: MyString
+  completed_at: MyString
+
+two:
+  id: 1
+  title: MyString
+  description: MyText
+  duedate: 2023-08-08 12:58:55
+  priority: MyString
+  status: MyString
+  category: MyString
+  assigned_to: MyString
+  created_at: MyString
+  completed_at: MyString

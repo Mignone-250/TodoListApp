@@ -1,0 +1,77 @@
+<% 
+  def priority_highlight_class(priority)
+    case priority
+    when 'high'
+      'bg-danger text-white'
+    when 'medium'
+      'bg-warning text-dark'
+    when 'low'
+      'bg-success text-white'
+    else
+      ''
+    end
+  end
+%>
+
+<% 
+  def category_highlight_class(category)
+    case category
+    when 'work'
+      'bg-primary text-white'
+    when 'business'
+      'bg-success text-white'
+    when 'personal'
+      'bg-info text-white'
+    when 'family'
+      'bg-warning text-dark'
+    when 'education'
+      'bg-danger text-white'
+    else
+      ''
+    end
+  end
+%>
+
+<% 
+  def status_highlight_class(status)
+    case status
+    when 'completed'
+      'bg-success text-white'
+    when 'ongoing'
+      'bg-primary text-white'
+    when 'pending'
+      'bg-warning text-dark'
+    else
+      ''
+    end
+  end
+%>
+<div id="<%= dom_id task %>">
+  <tr  style="font-family:  Perpetua;">
+    <td><%= task.id %></td>
+    <td><%= link_to task.title, task %></td>
+    <span class="description-toggle"><%= task.description %></span>
+    <td><%= task.duedate %></td>
+   <td>
+      <% priority_class = priority_highlight_class(task.priority) %>
+      <span class="rounded-pill px-2 py-1 <%= priority_class %>"><%= task.priority %></span>
+    </td>
+    
+    
+     <td>
+      <% category_class = category_highlight_class(task.category) %>
+      <span class="rounded-pill px-2 py-1 <%= category_class %>"><%= task.category %></span>
+    </td>
+    <td><%= task.assigned_to %></td>
+    <td><%= task.created_at.strftime('%Y-%m-%d') %></td>
+    <td>
+      <% status_class = status_highlight_class(task.status) %>
+      <span class="rounded-pill px-2 py-1 <%= status_class %>"><%= task.status %></span>
+    </td>
+    <td><%= task.completed_at %></td>
+
+    <td><%= link_to "Show", task, class: "btn btn-outline-secondary btn-sm" %></td>
+
+
+  </tr>
+</div>

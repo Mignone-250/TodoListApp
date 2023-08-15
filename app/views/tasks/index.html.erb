@@ -1,0 +1,108 @@
+<style>
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .pagination a,
+  .pagination span {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+    color: #333;
+  }
+
+  .pagination a:hover,
+  .pagination span:hover {
+    background-color: #f2f2f2;
+  }
+
+  .pagination .current,
+  .pagination .previous,
+  .pagination .next {
+    background-color: #f2f2f2;
+    color: black;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+  }
+</style>
+
+
+
+
+
+
+<div class="card" style="border-bottom: none;">
+  <div class="card-header" >
+    <b>TO DO LIST</b>
+    <div id="tasks">
+  <table class="table table-bordered table-hover" style="font-family: Perpetua;">
+    <thead class=" " style="font-family:;">
+      <tr>
+        <th class="h6" style="border: none">#</th>
+        <th class="h6" style="border: none">Title</th>
+        <th class="h6" style="white-space: nowrap;border: none">Due Date</th>
+        <th class="h6" style="border: none">Priority</th>
+        <th class="h6" style="border: none">Category</th>
+        <th class="h6" style="white-space: nowrap;border: none">Assigned to </th>
+        <th class="h6" style="border: none">Sheduled on</th>
+        <th class="h6" style="border: none">Status</th>
+        <th class="h6" style="white-space: nowrap;border: none">Completed At</th>
+        <th class="h6" style="border: none"></th>
+      </tr>
+    </thead>
+  </div>
+  <div class="card-body">
+    
+    <tbody>
+  <% @tasks.each do |task| %>
+  <%= render partial: 'task', locals: { task: task } %>
+  <% end %>
+   </tbody>
+  </table>
+  <div class="pagination justify-content-center" >
+    <%= will_paginate @tasks, renderer: WillPaginate::ActionView::LinkRenderer, class: 'pagination' %>
+  </div>
+  <%= link_to "Add a Task", new_task_path, class:"btn btn-secondary" %>
+
+</div>
+
+<%= javascript_tag do %>
+  document.addEventListener("DOMContentLoaded", function() {
+    const descriptionToggleElements = document.querySelectorAll(".description-toggle");
+    const detailsLinks = document.querySelectorAll(".details-link");
+
+    detailsLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const descriptionElement = this.closest("tr").querySelector(".description-toggle");
+        descriptionElement.classList.toggle("show-description");
+      });
+    });
+  });
+<% end %>
+
+<style>
+  .description-toggle {
+    display: none;
+  }
+
+  .show-description {
+    display: table-cell;
+  }
+</style>
+
+
+  </div>
+</div>
+
+
+
+
+
+

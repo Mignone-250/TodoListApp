@@ -1,0 +1,68 @@
+
+
+<%= form_with(model: task) do |form| %>
+  <% if task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_area :description, class: "form-control", placeholder: "Description" %>
+  </div>
+
+ 
+
+  <div class="form-group" style="color:gray;">
+    <%= form.label :DueDate %>
+    <%= form.date_field :duedate, class: "form-control",min: Date.today %>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-4" style="color:gray;">
+      <%= form.label :priority %>
+      <%= form.select :priority, ['high', 'medium', 'low'], class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-4" style="color:gray;">
+      <%= form.label :status %>
+      <%= form.select :status, options_for_select(Task.statuses.keys, task.status), class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-4" style="color:gray;">
+      <%= form.label :category %>
+      <%= form.select :category, options_for_select(['work', 'business', 'personal', 'family', 'education']),class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :assigned_to, class: "form-control", placeholder: "Assigned To" %>
+  </div>
+
+  <div>
+    <%= form.text_field :created_at, type: 'hidden' %>
+  </div>
+
+  <div class="form-group" style="color:gray;">
+    <%= form.label :completed_at %>
+    <%= form.date_field :completed_at, class: "form-control",min: Date.today %>
+  </div>
+
+  <div class="form-group">
+    <%= form.number_field :user_id, id: :task_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+  </div>
+  
+
+<br/>
+  <div>
+    <%= form.submit "Save Task", class: "btn btn-secondary" %>
+  </div>
+<% end %>
