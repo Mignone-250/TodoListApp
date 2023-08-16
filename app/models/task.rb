@@ -22,17 +22,5 @@ class Task < ApplicationRecord
       errors.add(:assignee, "cannot contain numbers")
     end
   end
-  validate :completed_date_in_past, if: :completed_task?
-
-  private
-
-  def completed_task?
-    status == "completed"
-  end
-
-  def completed_date_in_past
-    if completed_at.present? && completed_task? && completed_at > Date.today
-      errors.add(:completed_at, " : Completion date cannot be in the future if task is completed")
-    end
-  end
+  
 end

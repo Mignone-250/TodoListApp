@@ -97,6 +97,6 @@ def search
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:id, :title, :description, :duedate, :priority, :status, :category, :assigned_to, :created_at, :completed_at, :user_id)
+      params.require(:task).permit(:id, :title, :description, :duedate, :priority, :status, :category, :assigned_to, :created_at, :user_id)
     end
 end

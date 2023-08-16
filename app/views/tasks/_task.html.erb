@@ -68,13 +68,7 @@
       <% status_class = status_highlight_class(task.status) %>
       <span class="rounded-pill px-2 py-1 <%= status_class %>"><%= task.status %></span>
     </td>
-    <td>
-  <% if task.completed_at %>
-    <%= task.completed_at.strftime('%Y-%m-%d') %>
-  <% else %>
-    -
-  <% end %>
-</td>
+   
 
 
     <td><%= link_to "Show", task, class: "btn btn-outline-secondary btn-sm" %></td>

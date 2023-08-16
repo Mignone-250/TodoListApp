@@ -51,10 +51,6 @@
     <%= form.text_field :created_at, type: 'hidden' %>
   </div>
 
-  <div class="form-group" style="color:gray;">
-    <%= form.label :completed_at %>
-    <%= form.date_field :completed_at, class: "form-control",min: Date.today %>
-  </div>
 
   <div class="form-group">
     <%= form.number_field :user_id, id: :task_user_id, class: "form-control", value: current_user.id, type: :hidden %>
