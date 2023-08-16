@@ -19,7 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_135255) do
     t.string "status"
     t.string "category"
     t.string "assigned_to"
-    t.date "completed_at_old"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
