@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_084933) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_113457) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -19,10 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_084933) do
     t.string "status"
     t.string "category"
     t.string "assigned_to"
-    t.date "completed_at"
+    t.date "completed_at_old"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.date "completed_at"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

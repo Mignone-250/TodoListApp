@@ -7,3 +7,4 @@ class ChangeCompletedAtDataTypeInTasks < ActiveRecord::Migration[7.0]
     change_column :tasks, :completed_at, :datetime
   end
 end
+
